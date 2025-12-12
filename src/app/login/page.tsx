@@ -54,7 +54,7 @@ export default function LoginPage() {
                         </svg>
                     </div>
                     <CardTitle className="text-2xl font-bold text-white">
-                        Karnataka Companies
+                        Indian Companies Dataset
                     </CardTitle>
                     <CardDescription className="text-slate-400">
                         Sign in to access the company database
