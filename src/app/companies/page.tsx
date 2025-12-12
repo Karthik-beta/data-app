@@ -274,11 +274,12 @@ export default function CompaniesPage() {
 
     return (
         <AppLayout user={user}>
-            <div className="max-w-[1920px] mx-auto p-4 space-y-4">
-                <div className="flex items-center justify-between flex-wrap gap-3">
-                    <div className="flex items-center gap-3">
-                        <h2 className="text-xl font-bold text-white">Companies</h2>
-                        <div className="px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm font-medium">
+            <div className="max-w-[1920px] mx-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
+                {/* Header - Stack on mobile */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                        <h2 className="text-lg sm:text-xl font-bold text-white">Companies</h2>
+                        <div className="px-2 sm:px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-xs sm:text-sm font-medium">
                             {hasFilters ? `${filteredTotal.toLocaleString()} of ` : ''}{totalCount.toLocaleString()}
                         </div>
                         {activeFilterCount > 0 && (
@@ -293,12 +294,13 @@ export default function CompaniesPage() {
                     </div>
                 </div>
 
+                {/* Filters Card */}
                 <Card className="border-slate-700 bg-slate-800/50">
-                    <CardHeader className="py-0">
-                        <CardTitle className="text-white">Filters</CardTitle>
+                    <CardHeader className="py-2 sm:py-3 px-3 sm:px-6">
+                        <CardTitle className="text-white text-sm sm:text-base">Filters</CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-0">
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                    <CardContent className="pt-0 px-3 sm:px-6 pb-3 sm:pb-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
                             <Input
                                 placeholder="Search..."
                                 value={filters.search}
@@ -355,7 +357,7 @@ export default function CompaniesPage() {
                             {hasFilters && <Button onClick={clearFilters} variant="outline" size="sm">Clear</Button>}
                         </div>
                     ) : (
-                        <div ref={tableContainerRef} className="h-[calc(100vh-320px)] overflow-auto" style={{ contain: 'strict' }}>
+                        <div ref={tableContainerRef} className="h-[calc(100vh-380px)] sm:h-[calc(100vh-320px)] overflow-auto" style={{ contain: 'strict' }}>
                             <table className="w-full text-sm border-collapse">
                                 <thead>
                                     <tr className="bg-slate-900">
